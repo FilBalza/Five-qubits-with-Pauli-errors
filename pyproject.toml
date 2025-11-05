@@ -1,0 +1,24 @@
+[project]
+name = "five-quantum-qubits-code-with-random-pauli"
+version = "0.1.0"
+description = "Python code that implements a five-qubits code under random Pauli error circuit using the package Qiskit. This repository refers to the mini-project #5 (second batch) of the Quantum Computing Boot Camp sponsored by the Erdős Institute."
+authors = [
+    { name = "Filippo Balzaretti", email = "fbalzare@ucsc.edu" }
+]
+requires-python = ">=3.12,<4"
+license = { text = "MIT" }
+
+dependencies = [
+    "numpy>=2.3.3,<3",
+    "matplotlib>=3.10.6,<4",
+    "qiskit>=2.2.1,<3",
+    "qiskit_aer>=0.17.0,<0.17.2"
+    "pylatexenc>=2.10,<3"
+]
+
+[project.urls]
+Homepage = "https://github.com/FilBalza/Five-qubits-with-Pauli-errors"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
