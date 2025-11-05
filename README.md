@@ -44,7 +44,7 @@ After correction, the encoded state must be decoded back into a single qubit to 
 
 ### Success-probability estimation
 For each error rate $p$, the quantum circuit is run $100$ times with $500$ measurement shots per run. The most frequent measurement result is taken as the logical output bit.\
-A run is counted as "successful" if the decoded measurement matches the expected logical bit: $0$ for $\ket{0_L}$ or $\ket{+_L}$, $1$ for $\ket{1_L}$ or $\ket{-_l}$. The success probability is then the ratio of successful runs to total runs, and can be plotted.
+A run is counted as "successful" if the decoded measurement matches the expected logical bit: $0$ for $\ket{0_L}$ or $\ket{+_L}$, $1$ for $\ket{1_L}$ or $\ket{-_L}$. The success probability is then the ratio of successful runs to total runs, and can be plotted.
 
 ## Comments on the results
 Although each run produces slightly different results due to the stochastic nature of the random Pauli errors, the overall trend consistently shows an exponential decay in the success probability as the error rate $p$ increases.
