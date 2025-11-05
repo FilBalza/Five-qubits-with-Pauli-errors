@@ -12,7 +12,7 @@ def five_qubits_with_random_Pauli(x1, x2, p):
     qcirc = QuantumCircuit(qr)
 
     # 2) Prepare the logical  |xL>  state based on the given booleans x1, x2. Save the decoded,
-    # initialized qubits to retrieve them later.
+    # initialized qubits to retrieve them later
 
     if (x1,x2)==(0,0):
         alpha, beta = 1,0
@@ -39,9 +39,8 @@ def five_qubits_with_random_Pauli(x1, x2, p):
 
     dcirc = qcirc.inverse() # decoder for later use
     qcirc.barrier()
-    # draw here
 
-    # 3) Add one random Pauli error on each of the  5  qubits with probability  p .
+    # 3) Add one random Pauli error on each of the 5 qubits with probability p
 
     for i in range(5):
         r = np.random.rand()
@@ -54,9 +53,8 @@ def five_qubits_with_random_Pauli(x1, x2, p):
 
 
     qcirc.barrier()
-    # draw here
 
-    # 4) Use stabilizer components to detect errors as syndrome in  4  ancillas.
+    # 4) Use stabilizer components to detect errors as syndrome in 4 ancillas
     ar    = QuantumRegister(4, "a")
     qcirc.add_register(ar)
 
@@ -74,7 +72,7 @@ def five_qubits_with_random_Pauli(x1, x2, p):
                 qcirc.cz(qr[j], ar[i])
         qcirc.h(ar[i])
 
-    # 5) Measure the syndromes as classical bits.
+    # 5) Measure the syndromes as classical bits
     sy   = ClassicalRegister(4, "s")
     qcirc.add_register(sy)
 
@@ -84,7 +82,6 @@ def five_qubits_with_random_Pauli(x1, x2, p):
     qcirc.measure(ar[3], sy[3])
 
     qcirc.barrier()
-    # draw here
 
     # 6) Correct the error on the qubits based on the detected syndrome
 
@@ -131,10 +128,9 @@ def five_qubits_with_random_Pauli(x1, x2, p):
                 qcirc.z(qr[qidx])
 
     qcirc.barrier()
-    # draw here
 
 
-    # 7) use the decoder to measure the first single logical qubit.
+    # 7) Use the decoder to measure the first single logical qubit.
     qcirc.compose(dcirc, qr, inplace=True)
     mr    = ClassicalRegister(1, "m")   # final logical measurement after decode
     qcirc.add_register(mr)
